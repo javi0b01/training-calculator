@@ -1,2 +1,2 @@
 # github_pages-calculator
-Calculator build with TypeScript, JavaScript, CSS, HTML
+Calculator build with vanilla HTML, CSS and JavaScript
