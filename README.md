@@ -3,7 +3,7 @@
 
 ## Description
 Calculator build with vanilla HTML, CSS and JavaScript.
-How does it look? Take a look at [Calculator]()
+How does it look? Take a look at [Calculator](https://javierandresgp.github.io/github_pages-calculator/)
 
 ## Stack
 * HTML
