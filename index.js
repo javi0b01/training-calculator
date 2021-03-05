@@ -3,13 +3,13 @@
  * VARIABLES
  */
 const d = document,
-  $previous = d.querySelector('[data-previous]'),
-  $current = d.querySelector('[data-current]'),
-  $ac = d.querySelector('[data-ac]'),
-  $del = d.querySelector('[data-del]'),
+  $previous = d.getElementById('previous'),
+  $current = d.getElementById('current'),
+  $ac = d.getElementById('ac'),
+  $del = d.getElementById('del'),
   $operations = d.querySelectorAll('[data-operation]'),
   $numbers = d.querySelectorAll('[data-number]'),
-  $result = d.querySelector('[data-result]');
+  $result = d.getElementById('result');
 
 /**
  * LISTENERS
@@ -28,29 +28,35 @@ d.addEventListener('DOMContentLoaded', () => {
     });
   });
   $result.addEventListener('click', result);
+  $current.textContent = 0;
 });
 
 /**
  * FUNCTIONS
  */
 const ac = () => {
-  console.log('click on AC ... ');
+  calculator.clear();
+  calculator.updateDisplay();
 };
 
 const del = () => {
-  console.log('click on DEL ... ');
+  calculator.deleteItem();
+  calculator.updateDisplay();
 };
 
 const operation = (ope) => {
-  console.log(ope);
+  calculator.handleOperation(ope);
+  calculator.updateDisplay();
 };
 
 const number = (num) => {
-  console.log(num);
+  calculator.handleNumber(num);
+  calculator.updateDisplay();
 };
 
 const result = () => {
-  console.log('click on RESULT ... ');
+  calculator.compute();
+  calculator.updateDisplay();
 };
 
 /**
@@ -58,9 +64,71 @@ const result = () => {
  */
 class Calculator {
   constructor(previousElement, currentElement) {
-    this.previousElement = previousElement;
-    this.currentElement = currentElement;
+    this.previousUI = previousElement;
+    this.currentUI = currentElement;
+    this.clear();
+  }
+
+  clear() {
+    this.previous = '';
+    this.current = '';
+    this.operation = undefined;
+  }
+
+  updateDisplay() {
+    this.currentUI.textContent = this.current;
+    if (this.operation !== undefined) {
+      this.previousUI.textContent = `${this.previous} ${this.operation}`;
+    } else {
+      this.previousUI.textContent = '';
+    }
+  }
+
+  handleNumber(number) {
+    if (number === '.' && this.current.includes('.')) return;
+    this.current = `${this.current}${number}`;
+  }
+
+  handleOperation(operation) {
+    if (this.current === '') return;
+    if (this.previous !== '') this.compute();
+    this.previous = this.current;
+    this.current = '';
+    this.operation = operation;
+  }
+
+  compute() {
+    let computation = undefined;
+    const previous = parseFloat(this.previous);
+    const current = parseFloat(this.current);
+    if (isNaN(previous) || isNaN(current)) return;
+    switch (this.operation) {
+      case '/':
+        computation = previous / current;
+        break;
+      case 'x':
+        computation = previous * current;
+        break;
+      case '+':
+        computation = previous + current;
+        break;
+      case '-':
+        computation = previous - current;
+        break;
+      default:
+        break;
+    }
+    this.previous = '';
+    this.current = computation.toString();
+    this.operation = undefined;
+  }
+
+  deleteItem() {
+    this.current = this.current.slice(0, -1);
   }
 }
-// Object
+
+/**
+ * INSTANCE
+ */
 const calculator = new Calculator($previous, $current);
