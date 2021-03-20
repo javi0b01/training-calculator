@@ -1,9 +1,9 @@
-# GitHub Pages
-:open_file_folder: github_pages-calculator
+# Self―Training
+:octocat: training-calculator
 
 ## Description
 Calculator build with vanilla HTML, CSS and JavaScript.
-How does it look? Take a look at [Calculator](https://javierandresgp.github.io/github_pages-calculator/)
+How does it look? Take a look at [Calculator](https://javierandresgp.github.io/training-calculator/)
 
 ## Stack
 * HTML
