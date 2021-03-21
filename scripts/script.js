@@ -37,6 +37,7 @@ d.addEventListener('DOMContentLoaded', () => {
 const ac = () => {
   calculator.clear();
   calculator.updateDisplay();
+  $current.textContent = 0;
 };
 
 const del = () => {
