@@ -1,14 +1,15 @@
-# Self―Training
-:octocat: training-calculator
+# training-calculator
+Self―Training
 
 ## Description
 Calculator build with vanilla HTML, CSS and JavaScript.  
-How does it look? Take a look at [Calculator](https://javierandresgp.github.io/training-calculator/)
+How does it look? Take a look at [Calculator](https://javi0b01.github.io/training-calculator/)
 
 ## Stack
-* HTML
-* CSS
-* JAVASCRIPT
+- HTML
+- CSS
+- JAVASCRIPT
 
-## Software engineer
-[Javier Andrés Garzón Patarroyo](https://www.javierandresgp.com)
+## Software Developer
+Built by [Javi](https://github.com/javi0b01) :copyright: 2021  
+Found a bug or have an idea? [Contact me](https://www.linkedin.com/in/javi0b01/).
